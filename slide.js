@@ -19,6 +19,7 @@ angular.widget('body', function(templateEl) {
       'margin-left': '1000em',
       'height': '44em',
       'border': '1px solid black',
+      'white-space': 'pre',
       'text-align': 'center',
     },
     '.current': {
