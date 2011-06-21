@@ -5,7 +5,7 @@ angular.widget('body', function(templateEl) {
 
   templateEl.append(ctrlEl)
   ctrlEl.append(counterEl)
-  
+
   addCssRules(styleSheet, {
     'body': {
       'overflow': 'hidden'
@@ -44,18 +44,18 @@ angular.widget('body', function(templateEl) {
       'transition': 'margin, 0.5s',
     }
   })
-  
-  
+
+
   this.directives(true)
   this.descend(true)
 
   return function(instanceEl) {
     var scope = this
-    
+
     window.$root = scope
-    
+
     scope.slideCount = 0
-    
+
     angular.element(window).bind('keydown', function(e) {
       switch (e.keyCode) {
         case 37: {
@@ -116,7 +116,7 @@ angular.widget('slide', function(templateEl) {
 
 function SlideCtrl($location) {
   var scope = this.$parent
-  
+
   if (scope.slideCount > 0) {
     scope.currentSlide = 1
   }
@@ -136,7 +136,7 @@ function addCssRules(stylesheet, rules) {
       if (property.match(/transition.*/)) {
         ruleString += '-webkit-' + property + ': ' + value + '; '
         ruleString += '-moz-' + property + ': ' + value + '; '
-        ruleString += '-o-' + property + ': ' + value + '; '                
+        ruleString += '-o-' + property + ': ' + value + '; '
       }
     })
     addCssRule(stylesheet, selector, ruleString)
