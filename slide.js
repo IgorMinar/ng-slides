@@ -114,12 +114,16 @@ angular.widget('slide', function(templateEl) {
 })
 
 
-function SlideCtrl() {
+function SlideCtrl($location) {
   var scope = this.$parent
   
   if (scope.slideCount > 0) {
     scope.currentSlide = 1
   }
+
+  scope.$watch('currentSlide', function(val) {
+    $location.hash = (val > 1) ? val : '';
+  });
 }
 
 
