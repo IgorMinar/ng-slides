@@ -127,14 +127,28 @@ angular.widget('slide', function(templateEl) {
 
 function SlideCtrl($location) {
   var scope = this.$parent
+    , oldHash = $location.hash
+    , oldCurrentSlide
 
-  if (scope.slideCount > 0) {
-    scope.currentSlide = 1
+  if ($location.hash) {
+    scope.currentSlide = oldCurrentSlide = parseInt($location.hash, 10)
+  } else if (scope.slideCount > 0) {
+    scope.currentSlide = oldCurrentSlide = 1
   }
 
-  scope.$watch('currentSlide', function(val) {
-    $location.hash = (val > 1) ? val : '';
-  });
+  //priority must be lower than PRIORITY_WATCH so that currentSlide watch runs afterwards
+  scope.$onEval(-1001, function() {
+    if (($location.hash || 1) == scope.currentSlide) return
+
+    if ($location.hash != oldHash) {
+      scope.currentSlide = parseInt($location.hash, 10) || 1
+    } else if (scope.currentSlide != oldCurrentSlide){
+      $location.hash = (scope.currentSlide > 1) ? scope.currentSlide : ''
+    }
+
+    oldHash = $location.hash
+    oldCurrentSlide = scope.currentSlide
+  })
 }
 
 
