@@ -21,6 +21,7 @@ angular.widget('body', function(templateEl) {
       'border': '1px solid black',
       'white-space': 'pre',
       'text-align': 'center',
+      'vertical-align': 'middle',
     },
     '.current': {
       'margin-left': '-27.5em',
