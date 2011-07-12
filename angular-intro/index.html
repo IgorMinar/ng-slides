@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org/">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>angular intro</title>
+  <script src="../../../angular.js/build/angular.js" ng:autobind></script>
+  <script src="../slide.js"></script>
+</head>
+<body>
+
+  <slide>
+
+
+    <h1>AngularJS</h1>
+
+
+    <h2>
+      HTML &amp JavaScript
+          for web-apps
+      rather than <em>documents</em>
+    </h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="What is angular?">
+
+
+
+    <h1>
+      MVC Framework + HTML Compiler
+
+      Pure JavaScript
+
+      Open Source
+
+      Google Funded
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="The Problem">
+
+
+
+
+
+    <h1>
+    Why is
+    web development
+    hard?
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="HTML">
+    <img src="img/History_HTML.png" width="770" height="82">
+
+
+    <h1>HTML</h1>
+
+    <h2>Language
+        for scientific documents
+        shared over the net</h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="JavaScript">
+    <img src="img/History_JS.png" width="770" height="82">
+
+
+    <h1>JavaScript</h1>
+
+    <h2>Scripting language
+        for HTML documents</h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="AJAX / Web 2.0">
+    <img src="img/History_AJAX.png" width="770" height="82">
+
+    <h1>AJAX / Web 2.0</h1>
+
+    <img src="img/gmail-logo.jpg" height="150"><img src="img/google-map-logo.gif" height="150">
+
+    <h2>Amazing apps,
+        despite the primitive building blocks</h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Lack of Abstraction">
+    <img src="img/History_today.png" width="770" height="82">
+
+    <h1>It's 2011</h1>
+    <h2>HTML and JavaScript
+        have improved...</h2>
+    <h2>... but the level of abstraction
+        is same as in 1989</h2>
+
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="But what about ...">
+    <img src="img/AlphabetSoup.png">
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello Document">
+    <pre class="code">
+      <p>Hello World!</p>
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello JavaScript">
+    <pre class="code">
+      <p id="greeting"></p>
+
+      ===script===
+      var isIE = document.attachEvent;
+      var addEventListener = isIE
+        ? function(e, t, fn) {
+            e.attachEvent('on' + t, fn);}
+        : function(e, t, fn) {
+            e.addEventListener(t, fn, false);};
+      addEventListener(document, 'load', function(){
+        var greeting = document.getElementById('greeting');
+        if (isIE) {
+          greeting.innerText = 'Hello World!';
+        } else {
+          greeting.textContent = 'Hello World!';
+        }
+      });
+      ===/script===
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello jQuery">
+    <pre class="code">
+      <p id="greeting"></p>
+
+      ===script===
+      $(function(){
+        $('#greeting').text('Hello World!');
+      });
+      ===/script===
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello Angular">
+    <pre class="code">
+      <p ng:init="greeting = 'Hello World!'">{{greeting}}</p>
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello Angular MVC">
+    <pre class="code">
+      <p ng:controller="Greeter">{{greeting}}</p>
+
+      ===script===
+      function Greeter(){
+        this.greeting = 'Hello World!';
+      }
+      ===/script===
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello jQuery form">
+    <input id="name" value="John">
+    <p id="greeting"></p>
+
+    ===script===
+    $(function(){
+      var name = $('#name');
+      var greeting = $('#greeting');
+
+      function update(){
+        greeting.text('Hello ' + name.val() + '!');
+      }
+
+      update();
+
+      name.bind('keydown', function(){
+        setTimeout(update, 0);
+      });
+    });
+    ===/script===
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello Angular form">
+    <pre class="code">
+      <input name="firstName" value="John">
+      <p>Hello {{firstName}}!</p>
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello jQuery form 2">
+    <pre class="code">
+      <select id="salutation">
+        <option>Hello</option>
+        <option>Greetings</option>
+        <option>Salut</option>
+        <option>Ahoj</option>
+        <option>Bonjour</option>
+      </select>
+      <input id="name" value="John">
+      <p id="greeting"></p>
+
+      ===script===
+      $(function(){
+        var salutation = $('#salutation');
+        var name = $('#name');
+        var greeting = $('#greeting');
+
+        function update(){
+          greeting.text(
+              salutation.val() + ' ' +
+              name.val() + '!');
+        }
+
+        update();
+
+        name.bind('keydown', function(){
+          setTimeout(update, 0);
+        });
+        salutation.bind('change', update);
+      });
+      ===/script===
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello Angular form 2">
+    <pre class="code">
+      <select name="salutation">
+        <option>Hello</option>
+        <option>Greetings</option>
+        <option>Salut</option>
+        <option>Ahoj</option>
+        <option>Bonjour</option>
+      </select>
+
+      <input name="name" value="John">
+
+      <p>{{salutation}} {{name}}!</p>
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="jQuery???">
+    <h1>
+      So you are
+      saying that
+      jQuery sucks?!?
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="jQuery <3">
+    <h1>
+      NO! NO! NO!
+      We <tt style="color: red; font-size: 1.5em;">&lt;3</tt> jQuery!
+      <span class="space"></span>(for DOM manipulation)
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="web-apps > DOM manipulation">
+    <h1>
+      Building webapps
+      is a lot more than
+      DOM manipulation!
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="increase the abstraction">
+    <h1>
+      angular
+      <em>
+        increases the
+        level of abstraction
+      </em>
+      to match webapp needs
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="XHR">
+    <pre class="code">
+      <div ng:controller="Greeter">
+        <input name="name">
+        <button ng:click="greet()">greet</button>
+        <p>{{greeting}}</p>
+      </div>
+
+      ===script===
+      function Greeter($xhr){
+        var self = this;
+
+        this.name = 'World';
+
+        this.greet = function() {
+          var url = 'http://angularjs.org/greet.php';
+          url += '?callback=JSON_CALLBACK';
+          url += '&amp;name=' + this.name;
+          $xhr('JSON', url, function(code, response){
+            self.greeting = response.greeting;
+          });
+        }
+      }
+      ===/script===
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Testing">
+    <h1>
+      Documents
+      don't need to be tested,
+      web-apps <em>do</em>!
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="How Testable?">
+    <h1>
+      angular takes
+      care of most
+      DOM manipulation
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Separation of Concerns">
+    <h1>
+      Strict separation
+      between
+      <em>application logic</em>
+      and
+      <em>DOM manipulation</em>
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Dependency Injection">
+    <h1>
+      Dependency Injection
+      and
+      removal of
+      global state
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Test Harness">
+    <h1>
+      unit / integration
+      and
+      end-to-end testing
+      solutions baked in
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="HTML is here to stay">
+    <pre class="markdown">
+    * HTML / JS will be around for a few more years
+    * HTML5 and ES5+ address low level issues and RFE's
+    * nobody is addressing higher level issues related to web-development
+      - (well, some do but not in a way that is friendly towards HTML, JS and
+         client-side programming)
+    </pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Implementation">
+    <h1>
+      - Pure JavaScript
+      - Pure Client-Side
+      
+      - Two Components<br/>
+          &nbsp;&nbsp; - HTML Compiler
+          &nbsp;&nbsp; - JavaScript Framework
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="AngularJS Summary">
+    <h1>Increase the level of abstraction</h1>
+    <h1>Helps to make your app testable</h1>
+    <h1>HTML / JS / Browser friendly</h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="We are not done yet">
+    <h1>
+      Warning:
+        We are yet to reach v1.0
+        All APIs subject to change
+        Documentation improving fast
+    </h1>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="The End">
+    <h1>
+      AngularJS
+    
+      @angularjs
+      
+      <a href="http://angularjs.org">http://angularjs.org</a>
+    </h1>
+  </slide>
+</body>
+</html>

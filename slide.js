@@ -8,20 +8,44 @@ angular.widget('body', function(templateEl) {
 
   addCssRules(styleSheet, {
     'body': {
-      'overflow': 'hidden'
+      'overflow-x': 'hidden',
+      'overflow-y': 'auto',
+      'margin': 0,
+      'padding': 0,
+      'background-color': 'rgb(215, 215, 215)',
+/*
+      'background': '-o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190))',
+      'background': '-moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190))',
+      'background': '-webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190))',
+      'background': '-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)))',
+*/
+
+      'font-size': '16px',
     },
     'slide': {
+      'width': '55em',
+      'height': '44em',
       'position': 'absolute',
       'top': '50%',
       'left': '50%',
-      'width': '55em',
       'margin-top': '-22em',
       'margin-left': '1000em',
-      'height': '44em',
-      'border': '1px solid black',
-      'white-space': 'pre',
+
+
+      'border': '1px solid rgba(0, 0, 0, .3)',
+      'border-radius': '10px',
+      'box-shadow': '0 2px 6px rgba(0, 0, 0, .1)',
+      'background-color': 'white',
+
+      'white-space': 'pre-line',
       'text-align': 'center',
       'vertical-align': 'middle',
+
+      'font-family': "'Open Sans', Arial, sans-serif",
+      'color': 'rgb(102, 102, 102)',
+      'text-shadow': '0 1px 1px rgba(0, 0, 0, .1)',
+      'line-height': '36px',
+      'letter-spacing': '-1px'
     },
     '.current': {
       'margin-left': '-27.5em',
@@ -157,12 +181,12 @@ function addCssRules(stylesheet, rules) {
     var ruleString = ''
 
     angular.forEach(rule, function(value, property) {
-      ruleString += property + ': ' + value + '; '
       if (property.match(/transition.*/)) {
         ruleString += '-webkit-' + property + ': ' + value + '; '
         ruleString += '-moz-' + property + ': ' + value + '; '
         ruleString += '-o-' + property + ': ' + value + '; '
       }
+      ruleString += property + ': ' + value + '; '
     })
     addCssRule(stylesheet, selector, ruleString)
   })
