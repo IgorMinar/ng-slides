@@ -44,6 +44,15 @@ angular.widget('body', function(templateEl) {
     '.future': {
       'margin-left': '107.5em',
       'transition': 'margin, 0.5s',
+    },
+    '#slideCounter': {
+      'position': 'absolute',
+      'top': '50%',
+      'left': '50%',
+      'width': '55em',
+      'margin-top': '22.5em',
+      'margin-left': '-28.5em',
+      'text-align': 'center',
     }
   })
 
