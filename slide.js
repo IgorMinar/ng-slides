@@ -111,7 +111,8 @@ angular.widget('body', function(templateEl) {
 
 
 angular.widget('slide', function(templateEl) {
-
+  this.descend(true);
+  this.directives(true);
   return function(instanceEl) {
     var scope = this
       , slideId = ++scope.slideCount
@@ -200,3 +201,68 @@ function addCssRule(styleSheet, selector, rule) {
     styleSheet.addRule(selector, rule, -1)
   }
 }
+
+///////////////////////////////////////////////
+
+/* http://docs.angularjs.org/#!angular.widget */
+
+angular.widget('pre', function(template){
+  this.descend(true);
+  this.directives(true);
+  if (template.hasClass('code')){
+    // since we are emulating jQuery we need to defer it.
+    var pre = template;
+    var html = pre.html();
+    var script = '';
+    pre.html('');
+    pre.css('display', 'block');
+    pre.css('white-space', 'normal');
+    pre.css('font-family', 'inherit');
+    pre.css('font-size', 'inherit');
+
+    html = html
+      .replace(/===script===([\s\S]*)===\/script===/mg, function(_, code){
+        script = code;
+        return '###SCRIPT###'
+      })
+      .replace(/&lt;/mg, '<')
+      .replace(/&gt;/mg, '>')
+      .replace(/&amp;/mg, '&');
+
+    // turns out that <script> tag is removed in .html()
+    // so we have to code it as p:script and the rename it.
+    var example = angular.element('<fieldset>')
+      .addClass('example')
+      .append('<legend>Example Output</legend>')
+      .append(angular.element('<div>').html(html.replace('###SCRIPT###', '')));
+
+    var code = angular.element('<fieldset>')
+      .addClass('code')
+      .append('<legend>Example Source</legend>')
+      .append(angular.element('<pre>')
+          .addClass('brush: js; html-script: true; toolbar: false;')
+          .text(html.replace('###SCRIPT###', '<script>' + script + '</script>')));
+
+    pre.append(example);
+    pre.append(code);
+    
+    window.eval(script);
+    if (document.fireEvent) {
+      document.fireEvent('onload');
+    } else {
+      var evnt = document.createEvent('HTMLEvents');
+      evnt.initEvent('load', true, false);
+      document.dispatchEvent(evnt);
+    }
+    
+    return highlight;
+  } else if (template.hasClass('code-only')){
+    template.addClass('brush: js; html-script: true; toolbar: false;');
+    return highlight;
+  }
+
+  function highlight(){
+    SyntaxHighlighter.highlight();
+  }
+});
+

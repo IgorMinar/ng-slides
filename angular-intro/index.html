@@ -3,7 +3,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>angular intro</title>
-  <script src="../../../angular.js/build/angular.js" ng:autobind></script>
+  <script src="../jquery-1.4.2.min.js"></script>
+  <script src="../angular-0.9.17.js" ng:autobind></script>
+  <script src="../syntaxhighlighter/shCore.js"></script>
+  <script src="../syntaxhighlighter/shBrushJScript.js"></script>
+  <script src="../syntaxhighlighter/shBrushXml.js"></script>
+  <link rel="stylesheet" href="../syntaxhighlighter/shCore.css" type="text/css"/>
+  <link rel="stylesheet" href="../syntaxhighlighter/shThemeDefault.css" type="text/css"/>
   <script src="../slide.js"></script>
 </head>
 <body>
@@ -140,17 +146,16 @@
 
   <slide title="Hello JavaScript">
     <pre class="code">
-      <p id="greeting"></p>
-
+      <p id="greeting1"></p>
       ===script===
       var isIE = document.attachEvent;
-      var addEventListener = isIE
+      var addListener = isIE
         ? function(e, t, fn) {
             e.attachEvent('on' + t, fn);}
         : function(e, t, fn) {
             e.addEventListener(t, fn, false);};
-      addEventListener(document, 'load', function(){
-        var greeting = document.getElementById('greeting');
+      addListener(document, 'load', function(){
+        var greeting = document.getElementById('greeting1');
         if (isIE) {
           greeting.innerText = 'Hello World!';
         } else {
@@ -167,11 +172,11 @@
 
   <slide title="Hello jQuery">
     <pre class="code">
-      <p id="greeting"></p>
+      <p id="greeting2"></p>
 
       ===script===
       $(function(){
-        $('#greeting').text('Hello World!');
+        $('#greeting2').text('Hello World!');
       });
       ===/script===
     </pre>
@@ -208,13 +213,13 @@
 
 
   <slide title="Hello jQuery form">
-    <input id="name" value="John">
-    <p id="greeting"></p>
-
+    <pre class="code">
+    <input id="name3" value="John">
+    <p id="greeting3"></p>
     ===script===
     $(function(){
-      var name = $('#name');
-      var greeting = $('#greeting');
+      var name = $('#name3');
+      var greeting = $('#greeting3');
 
       function update(){
         greeting.text('Hello ' + name.val() + '!');
@@ -227,6 +232,7 @@
       });
     });
     ===/script===
+    </pre>
   </slide>
 
 
@@ -246,21 +252,21 @@
 
   <slide title="Hello jQuery form 2">
     <pre class="code">
-      <select id="salutation">
+      <select id="salutation4">
         <option>Hello</option>
         <option>Greetings</option>
         <option>Salut</option>
         <option>Ahoj</option>
         <option>Bonjour</option>
       </select>
-      <input id="name" value="John">
-      <p id="greeting"></p>
+      <input id="name4" value="John">
+      <p id="greeting4"></p>
 
       ===script===
       $(function(){
-        var salutation = $('#salutation');
-        var name = $('#name');
-        var greeting = $('#greeting');
+        var salutation = $('#salutation4');
+        var name = $('#name4');
+        var greeting = $('#greeting4');
 
         function update(){
           greeting.text(
