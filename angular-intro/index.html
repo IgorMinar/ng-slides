@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="../syntaxhighlighter/shCore.css" type="text/css"/>
   <link rel="stylesheet" href="../syntaxhighlighter/shThemeDefault.css" type="text/css"/>
   <script src="../slide.js"></script>
+  <style>
+    h1 {
+
+
+    }
+  </style
 </head>
 <body>
 
@@ -18,32 +24,27 @@
 
 
     <h1>AngularJS</h1>
-
-
-    <h2>
-      HTML &amp JavaScript
+    <h2>HTML &amp; JavaScript
           for web-apps
-      rather than <em>documents</em>
-    </h2>
+        rather than documents</h2>
+
+
+    <p>Igor Minar</p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="What is angular?">
+  <slide title="What is AngularJS?">
 
 
-
-    <h1>
-      MVC Framework + HTML Compiler
-
-      Pure JavaScript
-
-      Open Source
-
-      Google Funded
-    </h1>
+    <ul>
+      <li>JavaScript Magic for building Web Apps</li>
+      <li>Pure JavaScript</li>
+      <li>Open Source (MIT)</li>
+      <li>Google Funded</li>
+    </ul>
   </slide>
 
 
@@ -54,71 +55,76 @@
 
 
 
-
-
-    <h1>
-    Why is
-    web development
-    hard?
-    </h1>
+    <p class="center">
+      Why is web development hard?
+    </p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="HTML">
-    <img src="img/History_HTML.png" width="770" height="82">
+  <slide>
 
 
-    <h1>HTML</h1>
 
-    <h2>Language
-        for scientific documents
-        shared over the net</h2>
+
+
+
+    <h2>A bit of history...</h2>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="JavaScript">
-    <img src="img/History_JS.png" width="770" height="82">
+  <slide title="1989: HTML">
+    <center><img src="img/History_HTML.png" width="770" height="82"></center>
 
-
-    <h1>JavaScript</h1>
-
-    <h2>Scripting language
-        for HTML documents</h2>
+    <p class="center">
+      Markup language for scientific documents
+      shared over the net.
+    </p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="AJAX / Web 2.0">
-    <img src="img/History_AJAX.png" width="770" height="82">
+  <slide title="1995: JavaScript">
+  <center><img src="img/History_JS.png"></center>
 
-    <h1>AJAX / Web 2.0</h1>
-
-    <img src="img/gmail-logo.jpg" height="150"><img src="img/google-map-logo.gif" height="150">
-
-    <h2>Amazing apps,
-        despite the primitive building blocks</h2>
+  <p class="center">
+    Scripting language
+    for HTML documents.
+  </p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="Lack of Abstraction">
-    <img src="img/History_today.png" width="770" height="82">
+  <slide title="2005: AJAX / Web 2.0">
+    <center><img src="img/History_AJAX.png"></center>
+    <center><img src="img/gmail-logo.jpg" height="150"><img src="img/google-map-logo.gif" height="150"></center>
+    <p class="center">
+      Amazing apps,
+      despite the primitive building blocks.
+    </p>
+  </slide>
 
-    <h1>It's 2011</h1>
-    <h2>HTML and JavaScript
-        have improved...</h2>
-    <h2>... but the level of abstraction
-        is same as in 1989</h2>
+
+  <!-- **** -->
+
+
+  <slide title="It's 2011, what's different?">
+    <center><img src="img/History_today.png"></center>
+
+    <p class="center">
+      HTML and JavaScript have improved,
+
+      but the level of abstraction is same as in 1989.
+    </p>
 
   </slide>
 
@@ -126,15 +132,29 @@
   <!-- **** -->
 
 
-  <slide title="But what about ...">
-    <img src="img/AlphabetSoup.png">
+  <slide title="But what about ...?">
+    <center><img src="img/AlphabetSoup.png" width="750px"></center>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="Hello Document">
+  <slide>
+
+
+
+
+
+
+    <h2>Let's look at some examples...</h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Hello HTML!" class="no-logo">
     <pre class="code">
       <p>Hello World!</p>
     </pre>
@@ -144,9 +164,10 @@
   <!-- **** -->
 
 
-  <slide title="Hello JavaScript">
+  <slide title="Hello JavaScript!" class="no-logo">
     <pre class="code">
       <p id="greeting1"></p>
+
       ===script===
       var isIE = document.attachEvent;
       var addListener = isIE
@@ -170,7 +191,7 @@
   <!-- **** -->
 
 
-  <slide title="Hello jQuery">
+  <slide title="Hello jQuery!" class="no-logo">
     <pre class="code">
       <p id="greeting2"></p>
 
@@ -186,7 +207,7 @@
   <!-- **** -->
 
 
-  <slide title="Hello Angular">
+  <slide title="Hello AngularJS!" class="no-logo">
     <pre class="code">
       <p ng:init="greeting = 'Hello World!'">{{greeting}}</p>
     </pre>
@@ -196,12 +217,12 @@
   <!-- **** -->
 
 
-  <slide title="Hello Angular MVC">
+  <slide title="Hello AngularJS MVC!" class="no-logo">
     <pre class="code">
-      <p ng:controller="Greeter">{{greeting}}</p>
+      <p ng:controller="GreetingCtrl">{{greeting}}</p>
 
       ===script===
-      function Greeter(){
+      function GreetingCtrl(){
         this.greeting = 'Hello World!';
       }
       ===/script===
@@ -212,10 +233,11 @@
   <!-- **** -->
 
 
-  <slide title="Hello jQuery form">
+  <slide title="Hello jQuery form!" class="no-logo">
     <pre class="code">
     <input id="name3" value="John">
     <p id="greeting3"></p>
+
     ===script===
     $(function(){
       var name = $('#name3');
@@ -224,7 +246,6 @@
       function update(){
         greeting.text('Hello ' + name.val() + '!');
       }
-
       update();
 
       name.bind('keydown', function(){
@@ -239,7 +260,7 @@
   <!-- **** -->
 
 
-  <slide title="Hello Angular form">
+  <slide title="Hello AngularJS form!" class="no-logo">
     <pre class="code">
       <input name="firstName" value="John">
       <p>Hello {{firstName}}!</p>
@@ -250,7 +271,7 @@
   <!-- **** -->
 
 
-  <slide title="Hello jQuery form 2">
+  <slide title="Hello jQuery form w/ dropdown!" class="no-logo">
     <pre class="code">
       <select id="salutation4">
         <option>Hello</option>
@@ -273,7 +294,6 @@
               salutation.val() + ' ' +
               name.val() + '!');
         }
-
         update();
 
         name.bind('keydown', function(){
@@ -289,7 +309,7 @@
   <!-- **** -->
 
 
-  <slide title="Hello Angular form 2">
+  <slide title="Hello AngularJS form w/ dropdown!" class="no-logo">
     <pre class="code">
       <select name="salutation">
         <option>Hello</option>
@@ -309,75 +329,81 @@
   <!-- **** -->
 
 
-  <slide title="jQuery???">
-    <h1>
+  <slide title="jQuery vs AngularJS">
+    <pre><h1>
       So you are
-      saying that
-      jQuery sucks?!?
-    </h1>
+
+             saying that
+
+                    jQuery sucks?!?
+    </h1></pre>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="jQuery <3">
-    <h1>
+  <slide title="jQuery vs AngularJS">
+    <pre><h2>
       NO! NO! NO!
-      We <tt style="color: red; font-size: 1.5em;">&lt;3</tt> jQuery!
-      <span class="space"></span>(for DOM manipulation)
-    </h1>
+
+                  We <tt style="color: red; font-size: 1.5em;">&lt;3</tt> jQuery!
+
+      (for DOM manipulation)
+    </h2></pre>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="web-apps > DOM manipulation">
-    <h1>
+  <slide>
+
+
+
+    <h2>
       Building webapps
       is a lot more than
       DOM manipulation!
-    </h1>
+    </h2>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="increase the abstraction">
-    <h1>
-      angular
-      <em>
-        increases the
-        level of abstraction
-      </em>
-      to match webapp needs
-    </h1>
+  <slide title="AngularJS vs jQuery">
+    <h2 class="center">
+        AngularJS increases the
+        level of abstraction.
+    </h2>
+    <h2 class="center">
+        jQuery "just" allows you type less.
+    </h2>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="XHR">
+  <slide title="Hello XHR!" class="no-logo">
     <pre class="code">
-      <div ng:controller="Greeter">
-        <input name="name">
+      <div ng:controller="GreeterCtrl">
+        <input name="greetingName">
         <button ng:click="greet()">greet</button>
         <p>{{greeting}}</p>
       </div>
 
       ===script===
-      function Greeter($xhr){
+      function GreeterCtrl($xhr){
         var self = this;
 
-        this.name = 'World';
+        this.greetingName = 'World';
 
         this.greet = function() {
           var url = 'http://angularjs.org/greet.php';
           url += '?callback=JSON_CALLBACK';
-          url += '&amp;name=' + this.name;
+          url += '&name=' + this.greetingName;
           $xhr('JSON', url, function(code, response){
             self.greeting = response.greeting;
           });
@@ -392,23 +418,23 @@
 
 
   <slide title="Testing">
-    <h1>
-      Documents
-      don't need to be tested,
-      web-apps <em>do</em>!
-    </h1>
+
+    <p class="center">
+      Documents don't need to be tested,
+      web-apps <strong>do</strong>!
+    </p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="How Testable?">
-    <h1>
-      angular takes
-      care of most
-      DOM manipulation
-    </h1>
+  <slide title="Declarative DOM Manipulation">
+
+
+    <p>
+      AngularJS takes care of most DOM manipulation
+    </p>
   </slide>
 
 
@@ -416,13 +442,13 @@
 
 
   <slide title="Separation of Concerns">
-    <h1>
-      Strict separation
-      between
-      <em>application logic</em>
+
+    <p class="center">
+      Strict separation between
+      application logic
       and
-      <em>DOM manipulation</em>
-    </h1>
+      DOM manipulation
+    </p>
   </slide>
 
 
@@ -430,12 +456,13 @@
 
 
   <slide title="Dependency Injection">
-    <h1>
-      Dependency Injection
+
+
+    <p class="center">
+      Inversion of control
       and
-      removal of
-      global state
-    </h1>
+      removal of global state
+    </p>
   </slide>
 
 
@@ -443,41 +470,25 @@
 
 
   <slide title="Test Harness">
-    <h1>
-      unit / integration
-      and
-      end-to-end testing
-      solutions baked in
-    </h1>
+    <p>
+      AngularJS has the following baked in:
+
+      &nbsp;&nbsp;&nbsp;&#x2713; unit / integration testing
+
+      &nbsp;&nbsp;&nbsp;&#x2713; end-to-end testing
+    </p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="HTML is here to stay">
-    <pre class="markdown">
-    * HTML / JS will be around for a few more years
-    * HTML5 and ES5+ address low level issues and RFE's
-    * nobody is addressing higher level issues related to web-development
-      - (well, some do but not in a way that is friendly towards HTML, JS and
-         client-side programming)
-    </pre>
-  </slide>
-
-
-  <!-- **** -->
-
-
-  <slide title="Implementation">
-    <h1>
-      - Pure JavaScript
-      - Pure Client-Side
-      
-      - Two Components<br/>
-          &nbsp;&nbsp; - HTML Compiler
-          &nbsp;&nbsp; - JavaScript Framework
-    </h1>
+  <slide title="HTML & JS Future">
+    <ul>
+      <li>HTML & JS will be around for a few more years</li>
+      <li>HTML5 and ES5+ address low level issues and improvements</li>
+      <li>w3c is not addressing high level issues related to web-development</li>
+    </ul>
   </slide>
 
 
@@ -485,9 +496,24 @@
 
 
   <slide title="AngularJS Summary">
-    <h1>Increase the level of abstraction</h1>
-    <h1>Helps to make your app testable</h1>
-    <h1>HTML / JS / Browser friendly</h1>
+    <ul>
+      <li>Increase the level of abstraction</li>
+      <li>Helps to make your app testable</li>
+      <li>HTML / JS / Browser & Developer friendly</li>
+    </ul>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Implementation">
+    <ul>
+      <li>Pure JavaScript</li>
+      <li>Pure Client-Side</li>
+      <li>Two Components:<ul><li>HTML Compiler</li><li>JavaScript Framework</li></ul></li>
+      <li>Tiny! (25kB)</li>
+    </ul>
   </slide>
 
 
@@ -495,26 +521,27 @@
 
 
   <slide title="We are not done yet">
-    <h1>
-      Warning:
-        We are yet to reach v1.0
-        All APIs subject to change
-        Documentation improving fast
-    </h1>
+    <p>
+      <strong>Warning</strong>:
+
+        We have yet to reach v1.0.
+        All APIs subject to change.
+        Documentation improving fast.
+    </p>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="The End">
-    <h1>
+  <slide title="Thank You!">
+    <h2 class="center">
       AngularJS
-    
+
       @angularjs
-      
+
       <a href="http://angularjs.org">http://angularjs.org</a>
-    </h1>
+    </h2>
   </slide>
 </body>
 </html>
