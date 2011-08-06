@@ -75,7 +75,7 @@ angular.widget('body', function(templateEl) {
       'top': '50%',
       'left': '50%',
       'width': '900px',
-      'margin-top': '360px',
+      'margin-top': '380px',
       'margin-left': '-450px',
       'text-align': 'center',
       'font-family': "'Open Sans', Arial, sans-serif",
