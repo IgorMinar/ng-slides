@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org/">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>AngularJS Intro</title>
+  <script src="../jquery-1.4.2.min.js"></script>
+  <script src="../angular-0.9.17.js" ng:autobind></script>
+  <script src="../syntaxhighlighter/shCore.js"></script>
+  <script src="../syntaxhighlighter/shBrushJScript.js"></script>
+  <script src="../syntaxhighlighter/shBrushXml.js"></script>
+  <link rel="stylesheet" href="../syntaxhighlighter/shCore.css" type="text/css"/>
+  <link rel="stylesheet" href="../syntaxhighlighter/shThemeDefault.css" type="text/css"/>
+  <script src="../slide.js"></script>
+</head>
+<body>
+
+  <slide>
+
+
+    <h1>AngularJS</h1>
+    <h2>The Primer</h2>
+
+
+
+    <p>Igor Minar<br>Miško Hevery</p>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="What is AngularJS?">
+
+    <ul>
+      <li>JavaScript Framework for building Web Apps</li>
+      <li>2.5+ years old</li>
+      <li>Pure JavaScript</li>
+      <li>Open Source (@github, MIT)</li>
+      <li>Google Funded</li>
+    </ul>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Yet another JS Framework?">
+
+    <h2 class="center">
+      Why?
+    </h2>
+    <h2 class="center">
+      Because AngularJS
+      is
+      fundamentally different.
+    </h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="AngularJS Philosophy">
+
+
+    <pre><h2 class="center">
+  Be aligned with the past
+    and
+    the future of the web.</h2></pre>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide>
+    
+    
+    
+    
+    <h2 class="center">
+        3 pillars of AngularJS
+    </h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Templating">
+    
+    
+    <h2 class="center">
+      DOM-based extensible templating
+    </h2>
+
+  </slide>
+  
+  
+  <!-- **** -->
+
+
+  <slide title="Templating">
+    
+    
+    <pre><code style="font-size: 20px; color: black;" ng:non-bindable>
+      &lt;ul&gt;
+        &lt;li ng-repeat="user in users" ng-click="selectUser(user)"&gt;
+          {{user.name}}
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;markdown&gt;*Hello* **world**!&lt;/markdown&gt;
+    </code></pre>
+    
+  </slide>
+
+
+
+  <!-- **** -->
+
+
+  <slide title="Model Observation">
+    
+    
+    <h2 class="center">
+      Nonintrusive model mutation observation
+    </h2>
+
+  </slide>
+  
+
+  <!-- **** -->
+
+
+  <slide title="Model Observation">
+    
+    
+    <pre><code style="font-size: 20px; color: black;">
+      users = [
+        {id: 1, name: 'Bob'},
+        {id: 2, name: 'Jim'}
+      ]
+    </code></pre>
+
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Maintainability">
+    
+    
+    <h2 class="center">
+      App structure and testability
+      with Dependency Injection
+    </h2>
+  </slide>
+
+
+  <!-- **** -->
+
+
+  <slide title="Maintainability">
+    
+    
+    <pre><code style="font-size: 20px; color: black;">
+      function SettingsController($http, dialog) {
+        ...
+      }
+      // SettingsController.$inject = ['$http', 'dialog'];
+    </code></pre>
+  </slide>
+
+
+
+  <!-- **** -->
+
+
+  <slide title="Demo time!">
+    <h2 class="center">
+      +AngularJS
+      @AngularJs
+
+      <a href="http://angularjs.org">http://angularjs.org</a>
+    </h2>
+  </slide>
+</body>
+</html>
